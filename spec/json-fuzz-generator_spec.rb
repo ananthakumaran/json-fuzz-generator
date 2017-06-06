@@ -420,7 +420,7 @@ describe JSON::Fuzz do
   end
 
   %w[ip-address ipv6 time date date-time uri].each do |format|
-    context "format #{format}" do
+    xcontext "format #{format}" do
       it_behaves_like JSON::Fuzz::Generator do
         let(:schema) {{
           "$schema"    => "http://json-schema.org/draft-04/schema#",
@@ -436,7 +436,7 @@ describe JSON::Fuzz do
     end
   end
 
-  context "format with union types" do
+  xcontext "format with union types" do
     it_behaves_like JSON::Fuzz::Generator do
       let(:schema) {{
         "$schema"    => "http://json-schema.org/draft-04/schema#",

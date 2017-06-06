@@ -12,7 +12,7 @@ module JSON
 
               any_of.each do |schema|
                 temp_params = JSON::Fuzz::Generator.generate(schema).reject do |param|
-                  ::JSON::Validator.validate(attributes, param)
+                  ::JSON::Validator.validate(attributes, param, parse_data: false)
                 end
                 temp_params.each {|e| generated_params << e}
               end
